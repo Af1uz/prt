@@ -1,16 +1,17 @@
-import React from 'react'
-import Boss1 from '../src/components/InfoPage'
-import Boss2 from '../src/components/IntroPage'
-import Boss3 from '../src/components/FouterPage'
+import React from 'react';
+import InfoPage from './components/InfoPage';
+import IntroPage from './components/IntroPage';
+import FouterPage from './components/FouterPage';
 
 const App = () => {
   return (
-    <div>
-      <Boss1/>
-      <Boss2/>
-      <Boss3/>
-    </div>
-  )
-}
+    
+      <div>
+        <InfoPage />
+        <IntroPage />
+        <FouterPage />
+      </div>
+  );
+};
 
-export default App
+export default App;

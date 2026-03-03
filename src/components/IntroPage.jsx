@@ -1,476 +1,474 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Calendar, Award, Users, CheckCircle, ChevronRight, Phone, Mail } from 'lucide-react';
+import { useState } from "react"
 
-const IntroPage = () => {
-  const [lang, setLang] = useState('UZ');
-  const [activeYear, setActiveYear] = useState(2024);
+const categories = [
+  { id: "all", label: "Barchasi" },
+  { id: "mains", label: "Asosiy taomlar" },
+  { id: "seafood", label: "Baliq & Dengiz" },
+  { id: "soup", label: "Sho'rvalar" },
+  { id: "salad", label: "Salatlar" },
+  { id: "desserts", label: "Desertlar" },
+  { id: "drinks", label: "Ichimliklar" },
+]
 
-  const content = {
-    UZ: {
-      production: {
-        title: "ISHLAB CHIQARISH",
-        subtitle: "Zamonaviy texnologiyalar markazi",
-        location: "Toshkent, O'zbekiston",
-        desc: "15,000 m² zamonaviy ishlab chiqarish korxonasi. Xalqaro GMP standartlariga muvofiq jihozlangan. Kuniga 50 tonna mahsulot ishlab chiqarish quvvati.",
-        features: [
-          { title: "GMP Sertifikatlangan", value: "ISO 22000" },
-          { title: "Ishlab chiqarish quvvati", value: "50t/kun" },
-          { title: "Sifat nazorati", value: "100%" },
-          { title: "Avtomatlashtirish", value: "95%" }
-        ]
-      },
-      history: {
-        title: "BIZNING TARIXMIZ",
-        subtitle: "9 yillik muvaffaqiyat yo'li",
-        timeline: [
-          { year: 2015, event: "Kompaniya tashkil etildi", detail: "Kichik ustaxona, 3 xodim, birinchi mahsulot" },
-          { year: 2017, event: "Birinchi fabrika ochildi", detail: "1,000 m² ishlab chiqarish maydoni" },
-          { year: 2019, event: "ISO sertifikati olindi", detail: "Xalqaro standartlar tasdiqlandi" },
-          { year: 2021, event: "Eksport boshlandi", detail: "MDH davlatlariga yetkazib berish" },
-          { year: 2023, event: "Yangi texnologiyalar", detail: "Avtomatlashtirilgan liniyalar" },
-          { year: 2024, event: "10+ filial", detail: "O'zbekiston bo'ylab kengayish" }
-        ]
-      },
-      products: {
-        title: "MAHSULOTLAR",
-        subtitle: "Premium sifat, keng tanlov",
-        categories: [
-          {
-            name: "KLASSIK",
-            count: "15+",
-            items: ["Olcha", "Apelsin", "Limon", "Qulupnay", "Olma"],
-            image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=600&q=80"
-          },
-          {
-            name: "PREMIUM",
-            count: "10+",
-            items: ["Aralash mevali", "Tropical", "Berry Mix", "Exotic"],
-            image: "https://images.unsplash.com/photo-1587228539968-4d4dfe1c5f39?w=600&q=80"
-          },
-          {
-            name: "FUNKTSIONAL",
-            count: "8+",
-            items: ["Vitamin C", "Probiotik", "Energetik", "Immuno"],
-            image: "https://images.unsplash.com/photo-1587049352846-4a222e784588?w=600&q=80"
-          }
-        ]
-      },
-      branches: {
-        title: "FILIALLARIMIZ",
-        subtitle: "O'zbekiston bo'ylab",
-        locations: [
-          { city: "Toshkent", address: "Amir Temur ko'chasi 15", phone: "+998 71 123 45 67", type: "Bosh ofis" },
-          { city: "Samarqand", address: "Registon maydoni 7", phone: "+998 66 234 56 78", type: "Filial" },
-          { city: "Buxoro", address: "Ark ko'chasi 22", phone: "+998 65 345 67 89", type: "Filial" },
-          { city: "Farg'ona", address: "Mustaqillik 45", phone: "+998 73 456 78 90", type: "Filial" },
-          { city: "Namangan", address: "Ipak yo'li 88", phone: "+998 69 567 89 01", type: "Filial" },
-          { city: "Andijon", address: "Navoi 33", phone: "+998 74 678 90 12", type: "Filial" }
-        ]
-      }
-    },
-    RU: {
-      production: {
-        title: "ПРОИЗВОДСТВО",
-        subtitle: "Центр современных технологий",
-        location: "Ташкент, Узбекистан",
-        desc: "Современное производственное предприятие площадью 15,000 м². Оборудовано согласно международным стандартам GMP. Производственная мощность 50 тонн в день.",
-        features: [
-          { title: "GMP Сертифицировано", value: "ISO 22000" },
-          { title: "Мощность производства", value: "50т/день" },
-          { title: "Контроль качества", value: "100%" },
-          { title: "Автоматизация", value: "95%" }
-        ]
-      },
-      history: {
-        title: "НАША ИСТОРИЯ",
-        subtitle: "9 лет успеха",
-        timeline: [
-          { year: 2015, event: "Основание компании", detail: "Небольшая мастерская, 3 сотрудника" },
-          { year: 2017, event: "Первый завод", detail: "1,000 м² производственной площади" },
-          { year: 2019, event: "ISO сертификат", detail: "Международные стандарты подтверждены" },
-          { year: 2021, event: "Начало экспорта", detail: "Поставки в страны СНГ" },
-          { year: 2023, event: "Новые технологии", detail: "Автоматизированные линии" },
-          { year: 2024, event: "10+ филиалов", detail: "Расширение по Узбекистану" }
-        ]
-      },
-      products: {
-        title: "ПРОДУКТЫ",
-        subtitle: "Премиум качество, широкий выбор",
-        categories: [
-          {
-            name: "КЛАССИКА",
-            count: "15+",
-            items: ["Вишня", "Апельсин", "Лимон", "Клубника", "Яблоко"],
-            image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=600&q=80"
-          },
-          {
-            name: "ПРЕМИУМ",
-            count: "10+",
-            items: ["Микс фруктов", "Тропик", "Ягодный", "Экзотик"],
-            image: "https://images.unsplash.com/photo-1587228539968-4d4dfe1c5f39?w=600&q=80"
-          },
-          {
-            name: "ФУНКЦИОНАЛЬНЫЕ",
-            count: "8+",
-            items: ["Витамин C", "Пробиотик", "Энергия", "Иммуно"],
-            image: "https://images.unsplash.com/photo-1587049352846-4a222e784588?w=600&q=80"
-          }
-        ]
-      },
-      branches: {
-        title: "НАШИ ФИЛИАЛЫ",
-        subtitle: "По всему Узбекистану",
-        locations: [
-          { city: "Ташкент", address: "ул. Амира Темура 15", phone: "+998 71 123 45 67", type: "Главный офис" },
-          { city: "Самарканд", address: "площадь Регистан 7", phone: "+998 66 234 56 78", type: "Филиал" },
-          { city: "Бухара", address: "ул. Арк 22", phone: "+998 65 345 67 89", type: "Филиал" },
-          { city: "Фергана", address: "Мустакиллик 45", phone: "+998 73 456 78 90", type: "Филиал" },
-          { city: "Наманган", address: "Ипак йули 88", phone: "+998 69 567 89 01", type: "Филиал" },
-          { city: "Андижан", address: "Навои 33", phone: "+998 74 678 90 12", type: "Филиал" }
-        ]
-      }
-    },
-    EN: {
-      production: {
-        title: "PRODUCTION",
-        subtitle: "Modern technology center",
-        location: "Tashkent, Uzbekistan",
-        desc: "15,000 m² modern production facility. Equipped according to international GMP standards. Production capacity of 50 tons per day.",
-        features: [
-          { title: "GMP Certified", value: "ISO 22000" },
-          { title: "Production capacity", value: "50t/day" },
-          { title: "Quality control", value: "100%" },
-          { title: "Automation", value: "95%" }
-        ]
-      },
-      history: {
-        title: "OUR HISTORY",
-        subtitle: "9 years of success",
-        timeline: [
-          { year: 2015, event: "Company founded", detail: "Small workshop, 3 employees" },
-          { year: 2017, event: "First factory opened", detail: "1,000 m² production area" },
-          { year: 2019, event: "ISO certificate", detail: "International standards confirmed" },
-          { year: 2021, event: "Export started", detail: "Delivery to CIS countries" },
-          { year: 2023, event: "New technologies", detail: "Automated production lines" },
-          { year: 2024, event: "10+ branches", detail: "Expansion across Uzbekistan" }
-        ]
-      },
-      products: {
-        title: "PRODUCTS",
-        subtitle: "Premium quality, wide selection",
-        categories: [
-          {
-            name: "CLASSIC",
-            count: "15+",
-            items: ["Cherry", "Orange", "Lemon", "Strawberry", "Apple"],
-            image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=600&q=80"
-          },
-          {
-            name: "PREMIUM",
-            count: "10+",
-            items: ["Mixed Fruits", "Tropical", "Berry Mix", "Exotic"],
-            image: "https://images.unsplash.com/photo-1587228539968-4d4dfe1c5f39?w=600&q=80"
-          },
-          {
-            name: "FUNCTIONAL",
-            count: "8+",
-            items: ["Vitamin C", "Probiotic", "Energy", "Immune"],
-            image: "https://images.unsplash.com/photo-1587049352846-4a222e784588?w=600&q=80"
-          }
-        ]
-      },
-      branches: {
-        title: "OUR BRANCHES",
-        subtitle: "Across Uzbekistan",
-        locations: [
-          { city: "Tashkent", address: "Amir Temur St. 15", phone: "+998 71 123 45 67", type: "Head Office" },
-          { city: "Samarkand", address: "Registan Square 7", phone: "+998 66 234 56 78", type: "Branch" },
-          { city: "Bukhara", address: "Ark St. 22", phone: "+998 65 345 67 89", type: "Branch" },
-          { city: "Fergana", address: "Mustaqillik 45", phone: "+998 73 456 78 90", type: "Branch" },
-          { city: "Namangan", address: "Ipak Yoli 88", phone: "+998 69 567 89 01", type: "Branch" },
-          { city: "Andijan", address: "Navoi 33", phone: "+998 74 678 90 12", type: "Branch" }
-        ]
-      }
-    }
-  };
+const menuItems = [
+  // MAINS
+  {
+    id: 1, category: "mains",
+    name: "Wagyu Burger",
+    subtitle: "Trюfel mayonezi, karamelizatsiya qilingan piyoz",
+    price: "240 000", time: "30 daq", tag: "Ekskluziv",
+    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 2, category: "mains",
+    name: "Qo'zi go'shti",
+    subtitle: "Lavanda, rozmarin va limon sousi",
+    price: "185 000", time: "35 daq", tag: "Chef's Pick",
+    img: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 3, category: "mains",
+    name: "Ribeye Steak",
+    subtitle: "Sarımsaqli yog', krızarmış kartoshka",
+    price: "320 000", time: "40 daq", tag: "Premium",
+    img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 4, category: "mains",
+    name: "Tovuq Parmigiana",
+    subtitle: "San Marzano pomidori, bufala mozzarella",
+    price: "145 000", time: "28 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 5, category: "mains",
+    name: "Risotto Nero",
+    subtitle: "Siyoh bilan, dengiz mahsulotlari",
+    price: "195 000", time: "35 daq", tag: "Yangi",
+    img: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 6, category: "mains",
+    name: "Duck Confit",
+    subtitle: "Apelsin glaze, sariq lavlagi puresi",
+    price: "275 000", time: "45 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1608835291093-394b0c943a75?w=600&q=80&auto=format&fit=crop",
+  },
+  // SEAFOOD
+  {
+    id: 7, category: "seafood",
+    name: "Losos Steak",
+    subtitle: "Sitrus, ukrop sousi va kappers",
+    price: "210 000", time: "25 daq", tag: "Yangi",
+    img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 8, category: "seafood",
+    name: "Karides Scampi",
+    subtitle: "Sarımsaqli yog', limon, petruşka",
+    price: "175 000", time: "20 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 9, category: "seafood",
+    name: "Ahtapot Grili",
+    subtitle: "Zeytun yog'i, paprika, limon",
+    price: "230 000", time: "30 daq", tag: "Chef's Pick",
+    img: "https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 10, category: "seafood",
+    name: "Tuna Tartare",
+    subtitle: "Avokado, sezam moyi, mikro ko'katlar",
+    price: "255 000", time: "15 daq", tag: "Premium",
+    img: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 11, category: "seafood",
+    name: "Moules Marinière",
+    subtitle: "Oq sharob, sarımsaq, krem",
+    price: "160 000", time: "20 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1594672757169-0b3c5cf45a30?w=600&q=80&auto=format&fit=crop",
+  },
+  // SOUPS
+  {
+    id: 12, category: "soup",
+    name: "French Onion Soup",
+    subtitle: "Gruyere pishloq, krizton",
+    price: "85 000", time: "20 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 13, category: "soup",
+    name: "Tom Kha Gai",
+    subtitle: "Kokos suti, limongrass, galangal",
+    price: "95 000", time: "25 daq", tag: "Mashhur",
+    img: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 14, category: "soup",
+    name: "Lobster Bisque",
+    subtitle: "Krem sousi, konyak, chive",
+    price: "145 000", time: "30 daq", tag: "Premium",
+    img: "https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 15, category: "soup",
+    name: "Minestrone",
+    subtitle: "Mavsumiy sabzavotlar, basil pesto",
+    price: "75 000", time: "20 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=600&q=80&auto=format&fit=crop",
+  },
+  // SALADS
+  {
+    id: 16, category: "salad",
+    name: "Caesar Royale",
+    subtitle: "Anchous, parmesan, brioche kriztonlar",
+    price: "95 000", time: "10 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 17, category: "salad",
+    name: "Niçoise",
+    subtitle: "Tuna, zaytun, qaynatilgan tuxum",
+    price: "110 000", time: "15 daq", tag: "Yangi",
+    img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 18, category: "salad",
+    name: "Burrata & Shaftoli",
+    subtitle: "Prosciutto, arugula, balzamik",
+    price: "130 000", time: "10 daq", tag: "Chef's Pick",
+    img: "https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=600&q=80&auto=format&fit=crop",
+  },
+  // DESSERTS
+  {
+    id: 19, category: "desserts",
+    name: "Crème Brûlée",
+    subtitle: "Bourbon vanil, karamel qobiq",
+    price: "95 000", time: "15 daq", tag: "Top",
+    img: "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 20, category: "desserts",
+    name: "Tiramisu",
+    subtitle: "Espresso, maskarpone, kakao",
+    price: "85 000", time: "10 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 21, category: "desserts",
+    name: "Chocolate Fondant",
+    subtitle: "70% kakao, vanil muzqaymoq",
+    price: "110 000", time: "12 daq", tag: "Mashhur",
+    img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 22, category: "desserts",
+    name: "Panna Cotta",
+    subtitle: "Qulupnay koulis, nana",
+    price: "75 000", time: "10 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 23, category: "desserts",
+    name: "Tarte Tatin",
+    subtitle: "Karamelizatsiya olma, creme fraiche",
+    price: "90 000", time: "15 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1562007908-17c67e878c88?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 24, category: "desserts",
+    name: "Macaron Tower",
+    subtitle: "12 xil ta'm, Parijdan ilhom",
+    price: "145 000", time: "5 daq", tag: "Premium",
+    img: "https://images.unsplash.com/photo-1558326567-98ae2405596b?w=600&q=80&auto=format&fit=crop",
+  },
+  // DRINKS
+  {
+    id: 25, category: "drinks",
+    name: "Espresso Martini",
+    subtitle: "Vodka, Kahlua, triple espresso",
+    price: "110 000", time: "8 daq", tag: "Mashhur",
+    img: "https://images.unsplash.com/photo-1621243804936-775306a8f2e3?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 26, category: "drinks",
+    name: "Roz Sharob",
+    subtitle: "Chateau d'Esclans, Provence 2022",
+    price: "120 000", time: "3 daq", tag: "Premium",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 27, category: "drinks",
+    name: "Negroni Sbagliato",
+    subtitle: "Campari, prosecco, apelsin zesti",
+    price: "105 000", time: "5 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 28, category: "drinks",
+    name: "Yuzu Lemonade",
+    subtitle: "Taza yuzu, nana, gaz suv",
+    price: "65 000", time: "5 daq", tag: "Yangi",
+    img: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 29, category: "drinks",
+    name: "Matcha Latte",
+    subtitle: "Ceremonial daraja matcha, sut kopigi",
+    price: "75 000", time: "7 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=600&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 30, category: "drinks",
+    name: "Cold Brew Tonic",
+    subtitle: "24 soatlik ekstrakt, tonic, limon",
+    price: "70 000", time: "3 daq", tag: null,
+    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80&auto=format&fit=crop",
+  },
+]
 
-  const t = content[lang];
+const TAG_COLORS = {
+  "Ekskluziv":   { bg: "rgba(97,33,15,0.88)",  color: "#FDF0D5" },
+  "Chef's Pick": { bg: "rgba(120,70,20,0.85)", color: "#FDF0D5" },
+  "Premium":     { bg: "rgba(20,12,4,0.80)",   color: "#FDF0D5" },
+  "Yangi":       { bg: "rgba(55,110,55,0.82)", color: "#fff"    },
+  "Mashhur":     { bg: "rgba(180,110,20,0.88)",color: "#fff"    },
+  "Top":         { bg: "rgba(97,33,15,0.78)",  color: "#FDF0D5" },
+}
+
+export default function IntroPage() {
+  const [activeCategory, setActiveCategory] = useState("all")
+  const [cart, setCart] = useState({})
+  const [imgErr, setImgErr] = useState({})
+
+  const filtered = activeCategory === "all" ? menuItems : menuItems.filter(i => i.category === activeCategory)
+  const totalItems = Object.values(cart).reduce((a, b) => a + b, 0)
+
+  const add = (id) => setCart(p => ({ ...p, [id]: (p[id] || 0) + 1 }))
+  const remove = (id) => setCart(p => {
+    if (!p[id] || p[id] <= 1) { const n = { ...p }; delete n[id]; return n }
+    return { ...p, [id]: p[id] - 1 }
+  })
 
   return (
-    <div className="bg-[#0A0A0A] text-[#E8E8E8]">
-      
-      {/* PRODUCTION SECTION */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left: Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="aspect-[4/3] bg-[#121212] overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=85"
-                alt="Production facility"
-                className="w-full h-full object-cover grayscale opacity-70 hover:opacity-90 transition-opacity duration-500"
-              />
-            </div>
-            
-            {/* Stats Overlay */}
-            <div className="absolute bottom-8 left-8 right-8 bg-black/80 backdrop-blur-sm p-6 border border-white/10">
-              <div className="grid grid-cols-2 gap-4">
-                {t.production.features.map((feat, i) => (
-                  <div key={i}>
-                    <div className="text-2xl font-black text-white mb-1">{feat.value}</div>
-                    <div className="text-[11px] text-gray-400 tracking-wide">{feat.title}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-[2px] bg-white" />
-                <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-gray-500">
-                  {t.production.subtitle}
-                </span>
-              </div>
-              
-              <h2 className="text-[48px] md:text-[64px] font-black tracking-tight mb-6">
-                {t.production.title}
-              </h2>
-
-              <div className="flex items-center gap-2 mb-6 text-gray-400">
-                <MapPin size={16} />
-                <span className="text-sm">{t.production.location}</span>
-              </div>
-
-              <p className="text-[15px] leading-relaxed text-gray-400">
-                {t.production.desc}
-              </p>
-            </div>
-
-            <div className="pt-6 border-t border-white/10 space-y-3">
-              {['GMP Certified Facility', 'Laboratory Quality Control', 'Automated Production Lines'].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle size={18} className="text-white" />
-                  <span className="text-[14px]">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* HISTORY SECTION */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32 border-t border-white/[0.06]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-[48px] md:text-[64px] font-black tracking-tight mb-2">
-            {t.history.title}
-          </h2>
-          <p className="text-lg text-gray-400">{t.history.subtitle}</p>
-        </motion.div>
-
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10" />
-
-          {/* Timeline Items */}
-          <div className="space-y-16">
-            {t.history.timeline.map((item, index) => (
-              <motion.div
-                key={item.year}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`relative grid md:grid-cols-2 gap-8 ${
-                  index % 2 === 0 ? '' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* Year Circle */}
-                <div className="absolute left-0 md:left-1/2 top-0 transform md:-translate-x-1/2">
-                  <button
-                    onClick={() => setActiveYear(item.year)}
-                    className={`w-12 h-12 rounded-full border-2 flex items-center justify-center font-black text-sm transition-all ${
-                      activeYear === item.year
-                        ? 'bg-white text-black border-white scale-110'
-                        : 'bg-[#0A0A0A] text-white border-white/20 hover:border-white/40'
-                    }`}
-                  >
-                    {item.year.toString().slice(-2)}
-                  </button>
-                </div>
-
-                {/* Content */}
-                <div className={`${index % 2 === 0 ? 'md:text-right md:pr-16' : 'md:col-start-2 md:pl-16'} pl-16 md:pl-0`}>
-                  <div className="inline-block bg-[#121212] p-6 border border-white/10">
-                    <div className="text-sm font-bold text-gray-500 mb-2">{item.year}</div>
-                    <h3 className="text-xl font-bold mb-2">{item.event}</h3>
-                    <p className="text-sm text-gray-400">{item.detail}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCTS SECTION */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32 border-t border-white/[0.06]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-[48px] md:text-[64px] font-black tracking-tight mb-2">
-            {t.products.title}
-          </h2>
-          <p className="text-lg text-gray-400">{t.products.subtitle}</p>
-        </motion.div>
-
-        {/* Product Categories */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {t.products.categories.map((category, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group cursor-pointer"
-            >
-              {/* Image */}
-              <div className="aspect-square bg-[#121212] mb-6 overflow-hidden relative">
-                <img 
-                  src={category.image}
-                  alt={category.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-                />
-                
-                {/* Count Badge */}
-                <div className="absolute top-6 right-6 bg-black/80 backdrop-blur-sm px-4 py-2 border border-white/20">
-                  <span className="text-2xl font-black">{category.count}</span>
-                </div>
-              </div>
-
-              {/* Info */}
-              <div className="space-y-4">
-                <h3 className="text-2xl font-black tracking-tight group-hover:text-white transition-colors">
-                  {category.name}
-                </h3>
-
-                <ul className="space-y-2">
-                  {category.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                      <div className="w-1 h-1 bg-white" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <button className="group/btn flex items-center gap-2 text-sm font-bold text-white hover:gap-4 transition-all">
-                  {lang === 'UZ' ? 'BATAFSIL' : lang === 'RU' ? 'ПОДРОБНЕЕ' : 'VIEW MORE'}
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* BRANCHES SECTION */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-16 py-24 md:py-32 border-t border-white/[0.06]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-[48px] md:text-[64px] font-black tracking-tight mb-2">
-            {t.branches.title}
-          </h2>
-          <p className="text-lg text-gray-400">{t.branches.subtitle}</p>
-        </motion.div>
-
-        {/* Branches Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.branches.locations.map((location, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-[#121212] p-8 border border-white/10 hover:border-white/20 transition-all group"
-            >
-              {/* Type Badge */}
-              <div className={`inline-block px-3 py-1 mb-6 text-[10px] font-bold tracking-wider ${
-                location.type.includes('Bosh') || location.type.includes('Главный') || location.type.includes('Head')
-                  ? 'bg-white text-black'
-                  : 'bg-white/10 text-white'
-              }`}>
-                {location.type}
-              </div>
-
-              {/* City */}
-              <h3 className="text-2xl font-black mb-4 group-hover:text-white transition-colors">
-                {location.city}
-              </h3>
-
-              {/* Address */}
-              <div className="flex items-start gap-3 mb-4 text-gray-400">
-                <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span className="text-sm">{location.address}</span>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center gap-3 text-gray-400 mb-6">
-                <Phone size={16} />
-                <span className="text-sm font-mono">{location.phone}</span>
-              </div>
-
-              {/* CTA */}
-              <button className="w-full py-3 border border-white/20 text-sm font-bold tracking-wide hover:bg-white hover:text-black transition-all">
-                {lang === 'UZ' ? 'YO\'NALISH OLISH' : lang === 'RU' ? 'ПОЛУЧИТЬ МАРШРУТ' : 'GET DIRECTIONS'}
-              </button>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
+    <div style={{ minHeight: "100vh", background: "#FDF0D5", fontFamily: "'Cormorant Garamond', Georgia, serif", position: "relative", overflowX: "hidden" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        * {
-          font-family: 'Inter', sans-serif;
-        }
-      `}</style>
-    </div>
-  );
-};
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;500&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-export default IntroPage;
+        .cat-pill {
+          cursor: pointer; border: none; outline: none;
+          padding: 10px 22px; border-radius: 100px;
+          font-family: 'Lato', sans-serif; font-size: 10.5px;
+          letter-spacing: 2px; text-transform: uppercase; font-weight: 400;
+          transition: all 0.26s ease; white-space: nowrap; flex-shrink: 0;
+        }
+        .cat-active { background: #61210F; color: #FDF0D5; border: 1px solid #61210F; }
+        .cat-inactive { background: transparent; color: rgba(97,33,15,0.55); border: 1px solid rgba(97,33,15,0.2); }
+        .cat-inactive:hover { border-color: rgba(97,33,15,0.5); color: #61210F; }
+
+        .mcard {
+          background: #fffaf0;
+          border: 1px solid rgba(97,33,15,0.09);
+          border-radius: 16px; overflow: hidden;
+          display: flex; flex-direction: column;
+          transition: transform 0.32s cubic-bezier(.4,0,.2,1), box-shadow 0.32s ease;
+          animation: fadeUp 0.42s ease both;
+        }
+        .mcard:hover { transform: translateY(-7px); box-shadow: 0 22px 55px rgba(97,33,15,0.12); }
+
+        .cimg { position: relative; overflow: hidden; height: 195px; flex-shrink: 0; }
+        .cimg img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .mcard:hover .cimg img { transform: scale(1.07); }
+        .cimg-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 45%, rgba(15,5,0,0.5) 100%); }
+
+        .cbody { padding: 18px 18px 16px; display: flex; flex-direction: column; flex: 1; gap: 10px; }
+
+        .addbtn {
+          width: 35px; height: 35px; border-radius: 50%;
+          border: 1.5px solid rgba(97,33,15,0.28); background: transparent;
+          color: #61210F; font-size: 20px; cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          transition: all 0.2s ease; flex-shrink: 0; line-height: 1;
+        }
+        .addbtn:hover { background: #61210F; color: #FDF0D5; border-color: #61210F; }
+        .qbtn {
+          width: 30px; height: 30px; border-radius: 50%;
+          border: 1px solid rgba(97,33,15,0.25); background: transparent;
+          color: #61210F; font-size: 16px; cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          transition: all 0.2s; flex-shrink: 0;
+        }
+        .qbtn:hover { background: #61210F; color: #FDF0D5; }
+
+        .cart-bar {
+          position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+          background: #61210F; color: #FDF0D5;
+          padding: 13px 30px; border-radius: 100px;
+          display: flex; align-items: center; gap: 14px;
+          box-shadow: 0 10px 40px rgba(97,33,15,0.4);
+          animation: slideUp 0.38s ease;
+          z-index: 1000; white-space: nowrap;
+          font-family: 'Lato'; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .cbadge {
+          background: #FDF0D5; color: #61210F;
+          width: 24px; height: 24px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 11px;
+        }
+
+        @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes slideUp { from { opacity:0; transform:translateX(-50%) translateY(16px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+
+        .grid { display: grid; gap: 16px; grid-template-columns: repeat(4,1fr); }
+        @media(max-width:1200px){ .grid{grid-template-columns:repeat(3,1fr);} }
+        @media(max-width:820px) { .grid{grid-template-columns:repeat(2,1fr);} .cimg{height:165px;} }
+        @media(max-width:500px) { .grid{grid-template-columns:1fr;} .cimg{height:200px;} }
+
+        .cats { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+        @media(max-width:640px){
+          .cats { flex-wrap:nowrap; overflow-x:auto; justify-content:flex-start; padding-bottom:4px; -webkit-overflow-scrolling:touch; }
+          .cats::-webkit-scrollbar { display:none; }
+        }
+
+        .wrap { max-width:1340px; margin:0 auto; padding:52px 18px 110px; }
+        @media(max-width:500px){ .wrap{padding:32px 12px 96px;} }
+
+        .htitle { font-size: clamp(50px,8vw,94px); }
+      `}</style>
+
+      {/* bg decorations */}
+      <div style={{position:"fixed",top:-160,right:-160,width:440,height:440,borderRadius:"50%",border:"1px solid rgba(97,33,15,0.07)",pointerEvents:"none",zIndex:0}}/>
+      <div style={{position:"fixed",bottom:-120,left:-120,width:360,height:360,borderRadius:"50%",border:"1px solid rgba(97,33,15,0.06)",pointerEvents:"none",zIndex:0}}/>
+
+      <div className="wrap" style={{position:"relative",zIndex:1}}>
+
+        {/* HEADER */}
+        <div style={{textAlign:"center",marginBottom:52}}>
+          <div style={{display:"inline-flex",alignItems:"center",gap:14,marginBottom:20,opacity:0.4}}>
+            <div style={{width:44,height:1,background:"#61210F"}}/>
+            <span style={{fontFamily:"'Lato'",fontSize:10,letterSpacing:4,color:"#61210F",textTransform:"uppercase"}}>Bizning Menyu</span>
+            <div style={{width:44,height:1,background:"#61210F"}}/>
+          </div>
+          <h1 className="htitle" style={{fontWeight:300,color:"#61210F",lineHeight:1,letterSpacing:"-1.5px",marginBottom:14}}>
+           
+          </h1>
+          <p style={{fontStyle:"italic",fontSize:17,color:"rgba(97,33,15,0.48)",fontWeight:300}}>
+            Har bir taom — bir hikoya
+          </p>
+        </div>
+
+        {/* CATEGORIES */}
+        <div className="cats" style={{marginBottom:42}}>
+          {categories.map(cat => (
+            <button
+              key={cat.id}
+              className={`cat-pill ${activeCategory === cat.id ? "cat-active" : "cat-inactive"}`}
+              onClick={() => setActiveCategory(cat.id)}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* COUNT */}
+        <div style={{fontFamily:"'Lato'",fontSize:10,letterSpacing:2,color:"rgba(97,33,15,0.3)",textTransform:"uppercase",marginBottom:20,textAlign:"right"}}>
+          {filtered.length} ta taom
+        </div>
+
+        {/* GRID */}
+        <div className="grid">
+          {filtered.map((item, idx) => {
+            const qty = cart[item.id] || 0
+            const ts = TAG_COLORS[item.tag] || {}
+            return (
+              <div key={item.id} className="mcard" style={{animationDelay:`${(idx % 12) * 0.055}s`}}>
+
+                {/* image */}
+                <div className="cimg">
+                  {!imgErr[item.id] ? (
+                    <img
+                      src={item.img} alt={item.name} loading="lazy"
+                      onError={() => setImgErr(p => ({ ...p, [item.id]: true }))}
+                    />
+                  ) : (
+                    <div style={{width:"100%",height:"100%",background:"rgba(97,33,15,0.07)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+                      <span style={{fontSize:52,opacity:0.25}}>🍽</span>
+                    </div>
+                  )}
+                  <div className="cimg-overlay"/>
+                  {item.tag && (
+                    <div style={{
+                      position:"absolute",top:11,left:11,
+                      padding:"4px 11px",borderRadius:100,
+                      fontFamily:"'Lato'",fontSize:9,letterSpacing:1.8,textTransform:"uppercase",
+                      background: ts.bg || "rgba(97,33,15,0.8)", color: ts.color || "#FDF0D5",
+                    }}>{item.tag}</div>
+                  )}
+                </div>
+
+                {/* body */}
+                <div className="cbody">
+                  <div style={{flex:1}}>
+                    <h3 style={{fontSize:19,fontWeight:500,color:"#61210F",lineHeight:1.2,marginBottom:4,letterSpacing:"-0.2px"}}>
+                      {item.name}
+                    </h3>
+                    <p style={{fontStyle:"italic",fontSize:12.5,color:"rgba(97,33,15,0.48)",fontWeight:300,lineHeight:1.5}}>
+                      {item.subtitle}
+                    </p>
+                  </div>
+
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:6}}>
+                    <div>
+                      <div style={{fontSize:17,fontWeight:600,color:"#61210F",letterSpacing:"-0.3px",lineHeight:1}}>
+                        {item.price}
+                        <span style={{fontSize:10.5,fontWeight:300,opacity:0.5,marginLeft:3}}>so'm</span>
+                      </div>
+                      <div style={{display:"flex",alignItems:"center",gap:4,marginTop:4,fontFamily:"'Lato'",fontSize:10,color:"rgba(97,33,15,0.38)",letterSpacing:0.8}}>
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                        {item.time}
+                      </div>
+                    </div>
+
+                    {qty === 0 ? (
+                      <button className="addbtn" onClick={() => add(item.id)}>+</button>
+                    ) : (
+                      <div style={{display:"flex",alignItems:"center",gap:8}}>
+                        <button className="qbtn" onClick={() => remove(item.id)}>−</button>
+                        <span style={{fontFamily:"'Lato'",fontSize:13,color:"#61210F",minWidth:16,textAlign:"center"}}>{qty}</span>
+                        <button className="qbtn" onClick={() => add(item.id)}>+</button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* footer */}
+        <div style={{textAlign:"center",marginTop:64,display:"flex",alignItems:"center",justifyContent:"center",gap:18}}>
+          <div style={{width:56,height:1,background:"rgba(97,33,15,0.13)"}}/>
+          <span style={{fontStyle:"italic",color:"rgba(97,33,15,0.28)",fontSize:13,fontWeight:300}}>
+            Allergik mahsulotlar haqida so'rang
+          </span>
+          <div style={{width:56,height:1,background:"rgba(97,33,15,0.13)"}}/>
+        </div>
+      </div>
+
+      {/* CART BAR */}
+      {totalItems > 0 && (
+        <div className="cart-bar">
+          <div className="cbadge">{totalItems}</div>
+          Savatcha ko'rish
+          <span style={{opacity:0.6}}>→</span>
+        </div>
+      )}
+    </div>
+  )
+}

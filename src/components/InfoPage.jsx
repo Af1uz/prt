@@ -281,17 +281,14 @@ function RamadanBanner({ onDuoOpen }) {
       borderBottom: "1px solid rgba(253,240,213,.1)",
     }}>
       <Stars />
-      {/* deco rings */}
       {[{ r: -50, t: -50, s: 200 }, { l: -40, b: -40, s: 160 }].map((o, i) => (
         <div key={i} style={{ position: "absolute", right: o.r, top: o.t, left: o.l, bottom: o.b, width: o.s, height: o.s, borderRadius: "50%", pointerEvents: "none", border: "1px solid rgba(253,240,213,.06)" }} />
       ))}
 
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: isSm ? "0 14px" : "0 28px" }}>
 
-        {/* ── LARGE: single row ── */}
         {!isMd && (
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 20, padding: "13px 0" }}>
-            {/* Brand */}
             <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
               <div style={{ animation: "floatY 3s ease-in-out infinite" }}><SvgMoon size={40} /></div>
               <div>
@@ -299,7 +296,6 @@ function RamadanBanner({ onDuoOpen }) {
                 <p style={{ ...PF, color: "#FDF0D5", fontSize: 16, fontWeight: 700, margin: 0 }}>1446-yil ramazon oyi</p>
               </div>
             </div>
-            {/* Times */}
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               {[{ label: "Sahar", time: PRAYER.sahar, Icon: <SvgStar size={26} /> }, { label: "Iftor", time: PRAYER.iftor, Icon: <SvgMoon size={26} /> }].map((item, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 9, background: "rgba(253,240,213,.07)", border: "1px solid rgba(253,240,213,.12)", borderRadius: 12, padding: "9px 16px" }}>
@@ -311,12 +307,10 @@ function RamadanBanner({ onDuoOpen }) {
                 </div>
               ))}
             </div>
-            {/* Countdown */}
             <div>
               <p style={{ ...LR, color: "rgba(253,240,213,.4)", fontSize: 8.5, letterSpacing: ".18em", textTransform: "uppercase", margin: "0 0 4px" }}>Iftorga qadar</p>
               <Countdown target={PRAYER.iftor} />
             </div>
-            {/* Actions */}
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
               <button onClick={onDuoOpen} style={{ ...PF, display: "flex", alignItems: "center", gap: 7, padding: "9px 16px", borderRadius: 11, border: "1px solid rgba(253,240,213,.2)", background: "rgba(253,240,213,.08)", color: "#FDF0D5", fontSize: 13, fontWeight: 600, transition: "all .25s ease" }}
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(253,240,213,.18)"; }}
@@ -328,10 +322,8 @@ function RamadanBanner({ onDuoOpen }) {
           </div>
         )}
 
-        {/* ── MEDIUM: 2-row ── */}
         {isMd && !isSm && (
           <div style={{ padding: "12px 0 8px" }}>
-            {/* Row 1 */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <div style={{ animation: "floatY 3s ease-in-out infinite" }}><SvgMoon size={34} /></div>
@@ -349,7 +341,6 @@ function RamadanBanner({ onDuoOpen }) {
                 <button onClick={() => setExpanded(p => !p)} style={{ width: 34, height: 34, borderRadius: 8, border: "1px solid rgba(253,240,213,.15)", background: "rgba(253,240,213,.06)", color: "rgba(253,240,213,.6)", fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", transition: "transform .35s ease", transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}>▾</button>
               </div>
             </div>
-            {/* Row 2 */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, paddingBottom: 10 }}>
               <div style={{ display: "flex", gap: 10 }}>
                 {[{ label: "Sahar", time: PRAYER.sahar, Icon: <SvgStar size={22} /> }, { label: "Iftor", time: PRAYER.iftor, Icon: <SvgMoon size={22} /> }].map((item, i) => (
@@ -370,7 +361,6 @@ function RamadanBanner({ onDuoOpen }) {
           </div>
         )}
 
-        {/* ── SMALL: stacked ── */}
         {isSm && (
           <div style={{ padding: "11px 0 8px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
@@ -399,7 +389,6 @@ function RamadanBanner({ onDuoOpen }) {
           </div>
         )}
 
-        {/* Week table */}
         {expanded && (
           <div style={{ paddingBottom: 14, animation: "slideDown .3s ease" }}>
             <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid rgba(253,240,213,.1)", background: "rgba(0,0,0,.15)" }}>
@@ -488,7 +477,7 @@ function Navbar() {
               <Utensils size={isMob ? 18 : 22} color="#FDF0D5" strokeWidth={1.8} />
             </div>
             <div>
-              <p style={{ ...PF, fontSize: isMob ? 18 : 21, fontWeight: 900, color: "#61210F", margin: 0, lineHeight: 1 }}>Shunga</p>
+              <p style={{ ...PF, fontSize: isMob ? 18 : 21, fontWeight: 900, color: "#61210F", margin: 0, lineHeight: 1 }}>Xon Atlas</p>
               <p style={{ ...LR, fontSize: 8, color: "rgba(97,33,15,.36)", margin: 0, letterSpacing: ".25em", textTransform: "uppercase" }}>Restaurant</p>
             </div>
           </div>
@@ -529,7 +518,6 @@ function Navbar() {
         </div>
       </header>
 
-      {/* Mobile dropdown */}
       {mOpen && (
         <div style={{ position: "fixed", top: h, left: 0, right: 0, zIndex: 99, background: "rgba(253,240,213,.98)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(97,33,15,.1)", boxShadow: "0 12px 40px rgba(97,33,15,.1)", padding: "10px 20px 20px", animation: "slideDown .25s ease" }}>
           {NAV_LINKS.map(link => (
@@ -594,13 +582,11 @@ function Hero() {
   const isTab = w < 1100;
   const [active, setActive] = useState(0);
 
-  /* card image height by screen */
   const imgH = isSm ? 120 : isMob ? 140 : isTab ? 155 : 165;
 
   return (
     <section style={{ position: "relative", overflow: "hidden", background: "#FDF0D5" }}>
 
-      {/* ── Desktop: dark left half ── */}
       {!isTab && (
         <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "50%", background: "linear-gradient(160deg,#180502,#3d0e06,#61210F)", borderRadius: "0 64px 64px 0", zIndex: 0 }}>
           <Stars />
@@ -608,7 +594,6 @@ function Hero() {
         </div>
       )}
 
-      {/* ── Mobile/Tablet: dark top band ── */}
       {isTab && (
         <div style={{ position: "absolute", left: 0, top: 0, right: 0, height: isSm ? "48%" : "44%", background: "linear-gradient(180deg,#1a0503,#61210F)", borderRadius: "0 0 44px 44px", zIndex: 0 }}>
           <Stars />
@@ -619,13 +604,12 @@ function Hero() {
       {!isTab && (
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1280, margin: "0 auto", padding: "0 32px", display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center", minHeight: "92vh" }}>
 
-          {/* Left */}
           <div style={{ paddingRight: 52, paddingTop: 60, paddingBottom: 60, animation: "revealUp .8s ease both" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(253,240,213,.12)", border: "1px solid rgba(253,240,213,.22)", borderRadius: 100, padding: "5px 16px 5px 8px", marginBottom: 26 }}>
               <SvgMoon size={20} />
               <span style={{ ...LR, fontSize: 10, color: "rgba(253,240,213,.72)", letterSpacing: ".18em", textTransform: "uppercase" }}>Ramazon iftor menyu mavjud</span>
             </div>
-            <h1 style={{ ...PF, fontSize: "clamp(50px,4.5vw,70px)", fontWeight: 900, color: "#FDF0D5", lineHeight: 1.05, letterSpacing: -1.5, margin: "0 0 6px" }}>Shunga</h1>
+            <h1 style={{ ...PF, fontSize: "clamp(50px,4.5vw,70px)", fontWeight: 900, color: "#FDF0D5", lineHeight: 1.05, letterSpacing: -1.5, margin: "0 0 6px" }}>Xon Atlas</h1>
             <p style={{ ...PF, fontSize: "clamp(15px,1.5vw,20px)", fontStyle: "italic", color: "rgba(253,240,213,.48)", margin: "0 0 20px", letterSpacing: .8 }}>— Har bir taom bir hikoya</p>
             <div style={{ width: 80, height: 2, background: "linear-gradient(90deg,transparent,rgba(253,240,213,.35),transparent)", margin: "0 0 22px", position: "relative", overflow: "hidden", borderRadius: 2 }}>
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,transparent,rgba(253,240,213,.9),transparent)", animation: "shimmer 2.5s ease-in-out infinite" }} />
@@ -656,7 +640,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right */}
           <div style={{ paddingLeft: 48, paddingTop: 60, paddingBottom: 60, animation: "revealUp .9s ease .15s both" }}>
             <p style={{ ...LR, fontSize: 10, color: "rgba(97,33,15,.4)", letterSpacing: ".22em", textTransform: "uppercase", margin: "0 0 12px" }}>Ommabop taomlar</p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 14 }}>
@@ -681,19 +664,17 @@ function Hero() {
       {isTab && (
         <div style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto", padding: isSm ? "0 14px" : "0 24px" }}>
 
-          {/* Hero text — over dark band */}
           <div style={{ paddingTop: isSm ? 40 : 52, paddingBottom: isSm ? 28 : 36, textAlign: "center" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(253,240,213,.12)", border: "1px solid rgba(253,240,213,.22)", borderRadius: 100, padding: "4px 14px 4px 7px", marginBottom: 18 }}>
               <SvgMoon size={17} />
               <span style={{ ...LR, fontSize: 9, color: "rgba(253,240,213,.72)", letterSpacing: ".16em", textTransform: "uppercase" }}>Ramazon iftor menyu mavjud</span>
             </div>
-            <h1 style={{ ...PF, fontSize: isSm ? "clamp(38px,10vw,52px)" : "clamp(46px,8vw,62px)", fontWeight: 900, color: "#FDF0D5", lineHeight: 1.05, letterSpacing: -1.5, margin: "0 0 7px" }}>Shunga</h1>
+            <h1 style={{ ...PF, fontSize: isSm ? "clamp(38px,10vw,52px)" : "clamp(46px,8vw,62px)", fontWeight: 900, color: "#FDF0D5", lineHeight: 1.05, letterSpacing: -1.5, margin: "0 0 7px" }}>Xon Atlas</h1>
             <p style={{ ...PF, fontSize: isSm ? 14 : 17, fontStyle: "italic", color: "rgba(253,240,213,.48)", margin: "0 0 14px" }}>— Har bir taom bir hikoya</p>
             <p style={{ ...LR, fontSize: isSm ? 12.5 : 14, color: "rgba(253,240,213,.56)", lineHeight: 1.85, margin: "0 auto 20px", maxWidth: 460 }}>
               Yaponiya va O'rta Osiyo an'analarini birlashtirgan noyob ta'm olamiga xush kelibsiz.
             </p>
 
-            {/* Stats */}
             <div style={{ display: "flex", justifyContent: "center", gap: isSm ? 14 : 24, marginBottom: 22, flexWrap: "wrap" }}>
               {[{ num: "4.9", label: "Reyting", I: Star }, { num: "2400+", label: "Mijoz", I: User }, { num: "8+", label: "Tajriba", I: Clock }].map((s, i) => (
                 <div key={i} style={{ textAlign: "center" }}>
@@ -706,7 +687,6 @@ function Hero() {
               ))}
             </div>
 
-            {/* CTAs */}
             <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
               <button style={{ ...PF, display: "flex", alignItems: "center", gap: 8, padding: isSm ? "12px 20px" : "13px 26px", borderRadius: 13, background: "#FDF0D5", color: "#61210F", fontSize: isSm ? 12.5 : 13.5, fontWeight: 700, boxShadow: "0 8px 28px rgba(0,0,0,.25)", transition: "all .3s ease" }}
                 onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; }}
@@ -721,7 +701,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Menu cards — light background zone */}
           <div style={{ paddingBottom: 48 }}>
             <p style={{ ...LR, fontSize: 9.5, color: "rgba(97,33,15,.45)", letterSpacing: ".22em", textTransform: "uppercase", margin: "0 0 12px", textAlign: "center" }}>Ommabop taomlar</p>
             <div style={{ display: "grid", gridTemplateColumns: isSm ? "1fr 1fr" : "repeat(2,1fr)", gap: isSm ? 9 : 12, marginBottom: 12 }}>
@@ -729,7 +708,6 @@ function Hero() {
                 <MenuCard key={i} item={item} active={active === i} onClick={() => setActive(i)} imgH={imgH} />
               ))}
             </div>
-            {/* Active strip */}
             <div style={{ display: "flex", alignItems: "center", gap: 11, padding: "12px 14px", borderRadius: 14, background: "linear-gradient(135deg,#61210F,#8a2a10)", boxShadow: "0 8px 28px rgba(97,33,15,.22)" }}>
               <img src={MENU_ITEMS[active].img} alt="" style={{ width: isSm ? 38 : 44, height: isSm ? 38 : 44, borderRadius: 9, objectFit: "cover", flexShrink: 0, border: "2px solid rgba(253,240,213,.2)" }} />
               <div style={{ flex: 1, minWidth: 0 }}>

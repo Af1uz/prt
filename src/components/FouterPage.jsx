@@ -28,7 +28,7 @@ const contacts = [
     icon:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> },
   { label:'Telefon', value:'+998 71 123 45 67\n+998 90 000 11 22',
     icon:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.1 1.18 2 2 0 012.09 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.86-.86a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> },
-  { label:'Email',   value:'info@latavola.uz\nbron@latavola.uz',
+  { label:'Email',   value:'info@xonatlas.uz\nbron@xonatlas.uz',
     icon:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> },
   { label:'Bron',    value:"Qo'ng'iroq qiling yoki\nsaytimiz orqali band qiling",
     icon:<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> },
@@ -218,10 +218,10 @@ export default function FouterPage() {
             style={{border:'none'}}
             allowFullScreen=""
             loading="lazy"
-            title="La Tavola joylashuvi"
+            title="Xon Atlas joylashuvi"
           />
           <div className="map-card">
-            <div style={{fontFamily:"'Lato'",fontSize:9,letterSpacing:3,textTransform:'uppercase',color:'rgba(97,33,15,.38)',marginBottom:6}}>La Tavola</div>
+            <div style={{fontFamily:"'Lato'",fontSize:9,letterSpacing:3,textTransform:'uppercase',color:'rgba(97,33,15,.38)',marginBottom:6}}>Xon Atlas</div>
             <div style={{fontSize:15,fontWeight:500,color:ACCENT,marginBottom:5,lineHeight:1.3}}>Amir Temur ko'chasi, 5</div>
             <div style={{fontFamily:"'Lato'",fontSize:11,color:'rgba(97,33,15,.52)',lineHeight:1.65}}>
               Toshkent, O'zbekiston<br/>
@@ -240,9 +240,9 @@ export default function FouterPage() {
             <div>
               <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:8}}>
                 <div style={{width:30,height:1,background:ACCENT,opacity:.35}}/>
-                <span style={{fontFamily:"'Lato'",fontSize:9,letterSpacing:4,color:'rgba(97,33,15,.32)',textTransform:'uppercase'}}>1994 yildan</span>
+                <span style={{fontFamily:"'Lato'",fontSize:9,letterSpacing:4,color:'rgba(97,33,15,.32)',textTransform:'uppercase'}}>2018 yildan</span>
               </div>
-              <h3 style={{fontSize:36,fontWeight:300,color:ACCENT,letterSpacing:'-.5px',marginBottom:14,lineHeight:1}}>La Tavola</h3>
+              <h3 style={{fontSize:36,fontWeight:300,color:ACCENT,letterSpacing:'-.5px',marginBottom:14,lineHeight:1}}>Xon Atlas</h3>
               <p style={{fontStyle:'italic',fontSize:14.5,color:'rgba(97,33,15,.48)',fontWeight:300,lineHeight:1.75,maxWidth:300,marginBottom:22}}>
                 Toshkentning yuragida — har bir mehmon uchun unutilmas tajriba yaratamiz.
               </p>
@@ -269,7 +269,7 @@ export default function FouterPage() {
           {/* bottom bar */}
           <div style={{marginTop:44,paddingTop:18,paddingBottom:22,borderTop:'1px solid rgba(97,33,15,.1)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:10}}>
             <span style={{fontFamily:"'Lato'",fontSize:11,color:'rgba(97,33,15,.32)',letterSpacing:.4}}>
-              © 2025 La Tavola. Barcha huquqlar himoyalangan.
+              © 2025 Xon Atlas. Barcha huquqlar himoyalangan.
             </span>
             <div style={{display:'flex',gap:18,flexWrap:'wrap'}}>
               {['Maxfiylik','Shartlar','Sayt xaritasi'].map(l=>(

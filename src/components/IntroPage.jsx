@@ -354,7 +354,7 @@ export default function IntroPage() {
             <div style={{width:44,height:1,background:"#61210F"}}/>
           </div>
           <h1 className="htitle" style={{fontWeight:300,color:"#61210F",lineHeight:1,letterSpacing:"-1.5px",marginBottom:14}}>
-           
+            Xon Atlas
           </h1>
           <p style={{fontStyle:"italic",fontSize:17,color:"rgba(97,33,15,0.48)",fontWeight:300}}>
             Har bir taom — bir hikoya
